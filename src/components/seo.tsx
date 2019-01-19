@@ -1,9 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
+interface Props {
+  description?: string
+  lang?: string
+  meta?: []
+  keywords?: string[]
+  title: string
+}
+
+function SEO({ description, lang, meta, keywords, title } : Props) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -52,33 +59,19 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
             ]
               .concat(
-                keywords.length > 0
+                keywords && keywords.length > 0
                   ? {
                       name: `keywords`,
                       content: keywords.join(`, `),
                     }
                   : []
               )
-              .concat(meta)}
+              .concat(meta ? meta : [])}
           />
         )
       }}
     />
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  keywords: [],
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO
