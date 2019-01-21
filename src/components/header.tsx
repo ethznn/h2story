@@ -5,7 +5,7 @@ interface Props {
   siteTitle: string
 }
 
-const Header = ({ siteTitle } : Props) => (
+const Header = ({ siteTitle }: Props) => (
   <div
     style={{
       background: `#00204a`,
