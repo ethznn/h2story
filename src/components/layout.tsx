@@ -1,14 +1,15 @@
-import React, {ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
+
 import './layout.css'
 
 interface Props {
   children: ReactNode
 }
 
-const Layout = ({ children } : Props) => (
+const Layout = ({ children }: Props) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
