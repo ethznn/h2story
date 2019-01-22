@@ -10,7 +10,7 @@ interface Props {
   title: string
 }
 
-function SEO({ description, lang, meta, keywords, title }: Props) {
+const SEO = ({ description, lang, meta, keywords, title }: Props) => {
   return (
     <StaticQuery
       query={detailsQuery}
